@@ -1,5 +1,367 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--main-font), monospace, sans-serif;
+  background-color: var(--bg-color);
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.titles {
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  inline-size: 100%;
+}
+
+.highlight-color {
+  background-color: var(--highlight-color);
+}
+
+.header {
+  position: relative;
+  inset: 0;
+  display: grid;
+  grid-auto-rows: 1fr min-content 1fr;
+  min-block-size: 668px;
+  block-size: 100vh;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  border-inline-end: 1px solid var(--border-color);
+  border-block-start: 1px solid var(--border-color);
+  block-size: 25px;
+  inline-size: 25px;
+  inset-block-start: 10px;
+  inset-inline-end: 0;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  border-inline-start: 1px solid var(--border-color);
+  border-block-end: 1px solid var(--border-color);
+  block-size: 25px;
+  inline-size: 25px;
+  inset-block-end: 10px;
+  inset-inline-start: 0;
+}
+
+.header__blink {
+  position: absolute;
+  color: var(--rec-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  inset-block-start: 20px;
+  inset-inline-end: 28px;
+}
+
+.header__blink::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--rec-color);
+  opacity: var(--opacity);
+  background-color: #ff0070;
+  inline-size: 9px;
+  block-size: 9px;
+  inset-block: 8px;
+  inset-inline-start: 43px;
+}
+
+.header__title {
+  display: flex;
+  justify-content: flex-start;
+  color: var(--main-title-color);
+  font-weight: 700;
+  font-size: var(--title-font-size);
+  font-style: normal;
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--title-shadow);
+}
+
+.header__theme-menu {
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 11px;
+  margin-block-start: 5px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding-inline: 12px;
+  color: var(--btn-color);
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 23.4px;
+  text-transform: lowercase;
+  background-color: initial;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid currentColor;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--border-color);
+}
+
+.header__text {
+  justify-self: flex-end;
+  align-self: center;
+  margin-block-end: 10px;
+  max-inline-size: 364px;
+  inline-size: 100%;
+}
+
+.content-section {
+  margin-inline: 10px;
+}
+
+.section__title {
+  margin-block: 52px 20px;
+  color: var(--btn-color);
+}
+
+.section-link {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  text-decoration-line: none;
+  text-shadow: 2px 2px var(--highlight-color);
+}
+
+.section-link:hover {
+  border-block-end: 1px solid var(--focus-color);
+}
+
+.section-link:focus {
+  outline: 1px solid var(--focus-color);
+}
+
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section__text {
+  margin-block-start: 10px;
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.section-reasons__title {
+  margin-block: 40px 20px;
+}
+
+.section-increased-concentration__sub-title {
+  font-weight: 400;
+}
+
+.section-images__title {
+  margin-block: 52px 10px;
+}
+
+.section-images__image {
+  inline-size: 100%;
+}
+
+.section-images {
+  margin-block-end: 40px;
+}
+
+.section-images__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.section-images__image:first-child {
+  grid-area: sunset;
+}
+
+.section-images__image:nth-child(2) {
+  grid-area: ice-cream;
+}
+
+.section-images__image:nth-child(3) {
+  grid-area: tape;
+}
+
+.section-images__image:nth-child(4) {
+  grid-area: books;
+}
+
+.section-images__image:last-child {
+  grid-area: street;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-block-size: 668px;
+  block-size: 100vh;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--highlight-color);
+  color: var(--main-title-color);
+  font-weight: 700;
+  font-size: var(--title-font-size);
+  line-height: 82.5%;
+}
+
+@media (width >=768px) {
+  .decorated-zone::before {
+    inset-block-start: 20px;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 20px;
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+  }
+
+  .header__theme-menu-list {
+    margin-block-start: 16px;
+  }
+
+  .header__text {
+    margin-block-end: 20px;
+  }
+
+  .header__record-sign {
+    inset-block-start: 20px;
+  }
+
+  .content-section {
+    margin-inline: 20px;
+  }
+
+  .section-reasons {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-block-start: 60px;
+  }
+
+  .section-reasons__title {
+    margin-block-start: 0;
+    max-inline-size: 236px;
+    margin-block-end: 0;
+  }
+
+  .section-reduced-concentration__title {
+    margin-block-start: 78px;
+    max-inline-size: 236px;
+  }
+
+  .section-increased-concentration {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-block-start: 81px;
+  }
+
+  .section-increased-concentration__title {
+    margin-block: 0;
+  }
+
+  .section-images__title {
+    margin-block: 78px 20px;
+  }
+
+  .section-images {
+    margin-block-end: 60px;
+  }
+
+  .section-images__layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "sunset sunset ice-cream"
+      "tape books ice-cream"
+      "tape street street";
+    gap: 20px;
+  }
+
+  .section-images__image {
+    object-fit: cover;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .footer__title {
+    margin-inline: 0;
+  }
+}
+
+@media (width >=1024px) {
+  .header__theme-menu {
+    align-self: flex-start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .header__text {
+    max-inline-size: 490px;
+  }
+
+  .section-reasons {
+    gap: 10px;
+  }
+
+  .section-reasons__title {
+    max-inline-size: 315px;
+  }
+
+  .section-reduced-concentration__title {
+    max-inline-size: 277px;
+  }
+
+  .section-reduced-concentration__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .section-increased-concentration {
+    gap: 10px;
+  }
+
+  .section-increased-concentration__title {
+    max-inline-size: 304px;
+  }
 }
